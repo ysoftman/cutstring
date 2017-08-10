@@ -9,6 +9,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 
 	"github.com/fatih/color"
@@ -57,6 +58,11 @@ func main() {
 	splitHttp := strings.FieldsFunc(instr, multisep)
 
 	fmt.Println("[Result]")
+	fmt.Println(splitHttp[0])
+
+	splitHttp = splitHttp[1:]
+	sort.Strings(splitHttp)
+
 	for i := 0; i < len(splitHttp); i++ {
 		fmt.Fprintf(os.Stdout, "%v\n", getNextColorString(i, splitHttp[i]))
 	}
