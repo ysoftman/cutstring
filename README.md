@@ -2,7 +2,7 @@
 ## http 파라미터를 컬러로 구분하여 표시해줍니다. :smile:
 - 빌드
 ```
-git clone https://github.com/ysoftman/cutstring && cd cutstring && go build
+go get github.com/fatih/color && git clone https://github.com/ysoftman/cutstring && cd cutstring && go build
 ```
 - 예시
 ```
