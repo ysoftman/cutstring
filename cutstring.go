@@ -48,22 +48,24 @@ func main() {
 	if len(os.Args) == 2 {
 		instr = os.Args[1]
 	} else {
+		usageMsg := `ex)
+cutstring 'https://www.google.com/search?a=1&b=2&c=zzz'`
+		fmt.Println(usageMsg)
 		return
 	}
-
-	// splitHttp := strings.Split(instr, "&")
+	// splitHTTP := strings.Split(instr, "&")
 	multisep := func(c rune) bool {
 		return c == '&' || c == '?'
 	}
-	splitHttp := strings.FieldsFunc(instr, multisep)
+	splitHTTP := strings.FieldsFunc(instr, multisep)
 
 	fmt.Println("[Result]")
-	fmt.Println(splitHttp[0])
+	fmt.Println(splitHTTP[0])
 
-	splitHttp = splitHttp[1:]
-	sort.Strings(splitHttp)
+	splitHTTP = splitHTTP[1:]
+	sort.Strings(splitHTTP)
 
-	for i := 0; i < len(splitHttp); i++ {
-		fmt.Fprintf(os.Stdout, "%v\n", getNextColorString(i, splitHttp[i]))
+	for i := 0; i < len(splitHTTP); i++ {
+		fmt.Fprintf(os.Stdout, "%v\n", getNextColorString(i, splitHTTP[i]))
 	}
 }
