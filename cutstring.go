@@ -40,7 +40,6 @@ func getNextColorString(i int, str string) string {
 		white := color.New(color.FgWhite).SprintFunc()
 		return white(str)
 	}
-
 }
 
 func main() {
@@ -66,6 +65,6 @@ cutstring 'https://www.google.com/search?a=1&b=2&c=zzz'`
 	sort.Strings(splitHTTP)
 
 	for i := 0; i < len(splitHTTP); i++ {
-		fmt.Fprintf(os.Stdout, "%v\n", getNextColorString(i, splitHTTP[i]))
+		_, _ = fmt.Fprintf(os.Stdout, "%v\n", getNextColorString(i, splitHTTP[i]))
 	}
 }
